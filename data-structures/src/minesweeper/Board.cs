@@ -21,7 +21,7 @@ namespace data_structures.src.minesweeper
             this.columns = columns;
             this.cells = new Cell[numberOfCells];
             this.numberOfBombCells = numberOfBombs;
-            this.numberOfRemainingNormalCells = numberOfCells = numberOfBombs;
+            this.numberOfRemainingNormalCells = numberOfCells - numberOfBombs;
         }
 
         public void SetCell(int row, int column, Cell cell)

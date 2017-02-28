@@ -8,6 +8,13 @@ namespace data_structures.src.minesweeper
 {
     public class BoardGenerator
     {
+        private Random random;
+
+        public BoardGenerator(int seed)
+        {
+            this.random = new Random(seed);
+        }
+
         public Board Generate(int numberOfBombs, int rows, int columns)
         {
             rows = rows < 1 ? 1 : rows;
@@ -31,12 +38,11 @@ namespace data_structures.src.minesweeper
             }
 
             Board board = new Board(numberOfBombs, rows, columns);
-            Random random = new Random();
 
             int bombCellsToCreate = numberOfBombs;
             while (bombCellsToCreate > 0)
             {
-                int randomCoordinateIndex = random.Next(possibleCoordinatesForBombs.Count);
+                int randomCoordinateIndex = this.random.Next(possibleCoordinatesForBombs.Count);
                 BoardCoordinate coordinate = possibleCoordinatesForBombs[randomCoordinateIndex];
                 possibleCoordinatesForBombs.RemoveAt(randomCoordinateIndex);
                 BombCell bombCell = new BombCell(board, coordinate.row, coordinate.column);

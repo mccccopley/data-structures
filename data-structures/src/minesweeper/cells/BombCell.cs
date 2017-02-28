@@ -28,8 +28,8 @@ namespace data_structures.src.minesweeper
             ShowResult showResult = new ShowResult();
             if (this.state == CellState.Hidden)
             {
-                showResult.success = true;
                 this.state = CellState.Showing;
+                showResult.success = true;
             }
             return showResult;
         }

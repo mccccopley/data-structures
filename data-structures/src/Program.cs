@@ -94,16 +94,33 @@ namespace InterviewPrep
 
         static void TestMinesweeper()
         {
-            BoardGenerator boardGenerator = new BoardGenerator();
+            BoardGenerator boardGenerator = new BoardGenerator(1234);
             Board board = boardGenerator.Generate(10, 10, 10);
-            List<String> boardDisplay = new List<String>();
-            board.DisplayBoard(boardDisplay);
-            ShowBoardDisplay(boardDisplay);
+            ShowBoardDisplay(board);
+            ShowCell(board, 0, 0);
+            ShowBoardDisplay(board);
+            ShowCell(board, 9, 0);
+            ShowBoardDisplay(board);
             throw new Exception("END");
         }
 
-        static void ShowBoardDisplay(IList<String> cellRows)
+        static void ShowCell(Board board, int row, int column)
         {
+            Console.WriteLine("SHOW: ({0}, {1})", row, column);
+            board.ShowCell(row, column);
+        }
+
+        static void ShowBoardDisplay(Board board)
+        {
+            List<String> cellRows = new List<String>();
+            Console.WriteLine("REAL BOARD:");
+            board.DisplayBoard(cellRows, true);
+            foreach (String cellRow in cellRows)
+            {
+                Console.WriteLine(cellRow);
+            }
+            Console.WriteLine("USER BOARD:");
+            board.DisplayBoard(cellRows, false);
             foreach (String cellRow in cellRows)
             {
                 Console.WriteLine(cellRow);

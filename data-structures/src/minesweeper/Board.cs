@@ -132,7 +132,7 @@ namespace data_structures.src.minesweeper
             this.cells[cellIndex].Unflag();
         }
 
-        public void DisplayBoard(IList<String> cellRows)
+        public void DisplayBoard(IList<String> cellRows, bool showHidden)
         {
             StringBuilder stringBuilder = new StringBuilder();
             cellRows.Clear();
@@ -146,7 +146,7 @@ namespace data_structures.src.minesweeper
                     char cellChar = '?';
                     Cell cell = this.cells[cellIndex];
                     if (cell.IsFlagged()) cellChar = 'F';
-                    if (cell.IsShowing()) cellChar = cell.GetDisplayChar();
+                    if (cell.IsShowing() || showHidden) cellChar = cell.GetDisplayChar();
                     stringBuilder.Append(cellChar);
                 }
 

@@ -33,9 +33,9 @@ namespace data_structures.src.minesweeper
             ShowResult showResult = new ShowResult();
             if (this.state == CellState.Hidden)
             {
+                this.state = CellState.Showing;
                 showResult.numberNormalCellsRevealed = 1;
                 showResult.success = true;
-                this.state = CellState.Showing;
             }
             return showResult;
         }

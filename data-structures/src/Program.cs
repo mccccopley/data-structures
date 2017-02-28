@@ -1,4 +1,5 @@
-﻿using InterviewPrep.searches;
+﻿using data_structures.src.minesweeper;
+using InterviewPrep.searches;
 using InterviewPrep.sorts;
 using InterviewPrep.structures;
 using System;
@@ -17,6 +18,11 @@ namespace InterviewPrep
 
             int randomNumberCount = 10;
             int randomNumberSearchIndex = 8;
+
+            // test out minesweeper
+
+            TestMinesweeper();
+            return;
 
             // make a test array of numbers
 
@@ -84,6 +90,24 @@ namespace InterviewPrep
             integerBinaryTreeSet.Deserialize("test_binary_tree_set.txt");
 
             integerBinaryTreeSet.Output();
+        }
+
+        static void TestMinesweeper()
+        {
+            BoardGenerator boardGenerator = new BoardGenerator();
+            Board board = boardGenerator.Generate(10, 10, 10);
+            List<String> boardDisplay = new List<String>();
+            board.DisplayBoard(boardDisplay);
+            ShowBoardDisplay(boardDisplay);
+            throw new Exception("END");
+        }
+
+        static void ShowBoardDisplay(IList<String> cellRows)
+        {
+            foreach (String cellRow in cellRows)
+            {
+                Console.WriteLine(cellRow);
+            }
         }
     }
 }

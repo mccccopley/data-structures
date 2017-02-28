@@ -42,6 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\minesweeper\BoardCoordinate.cs" />
+    <Compile Include="src\minesweeper\BoardGenerator.cs" />
+    <Compile Include="src\minesweeper\cells\BlankCell.cs" />
+    <Compile Include="src\minesweeper\Board.cs" />
+    <Compile Include="src\minesweeper\Cell.cs" />
+    <Compile Include="src\minesweeper\CellState.cs" />
+    <Compile Include="src\minesweeper\cells\BombCell.cs" />
+    <Compile Include="src\minesweeper\cells\NumberCell.cs" />
+    <Compile Include="src\minesweeper\ShowResult.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="src\searches\BinarySearcher.cs" />
     <Compile Include="src\searches\ISearcher.cs" />
